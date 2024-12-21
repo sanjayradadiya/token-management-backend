@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/appointment/src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/appointment/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/appointment",
+  "projects": {
+    "appointment": {
+      "type": "application",
+      "root": "apps/appointment",
+      "entryFile": "main",
+      "sourceRoot": "apps/appointment/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/appointment/tsconfig.app.json",
+        "assets": ["apps/appointment/*.env"]
+      }
+    },
+    "business": {
+      "type": "application",
+      "root": "apps/business",
+      "entryFile": "main",
+      "sourceRoot": "apps/business/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/business/tsconfig.app.json",
+        "assets": ["apps/business/.env"]
+      }
+    },
+    "login": {
+      "type": "application",
+      "root": "apps/login",
+      "entryFile": "main",
+      "sourceRoot": "apps/login/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/login/tsconfig.app.json",
+        "assets": ["apps/login/.env"]
+      }
+    },
+    "authentication": {
+      "type": "library",
+      "root": "libs/authentication",
+      "entryFile": "index",
+      "sourceRoot": "libs/authentication/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/authentication/tsconfig.lib.json"
+      }
+    }
+  }
+}
